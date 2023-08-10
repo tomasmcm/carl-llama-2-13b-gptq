@@ -27,16 +27,16 @@ For more info, check out the [Banana.dev docs](https://docs.banana.dev/banana-do
 
 ### Using Docker
 
-Build the model as a Docker image. You can change the `firefly-llama2-13b-v1.2-gptq` part to anything.
+Build the model as a Docker image. You can change the `dolphin-llama2-7b-gptq` part to anything.
 
 ```sh
-docker build -t firefly-llama2-13b-v1.2-gptq .
+docker build -t dolphin-llama2-7b-gptq .
 ```
 
 Run the Potassium server
 
 ```sh
-docker run --publish 8000:8000 -it firefly-llama2-13b-v1.2-gptq
+docker run --publish 8000:8000 -it dolphin-llama2-7b-gptq
 ```
 
 In another terminal, run inference after the above is built and running.
