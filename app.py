@@ -32,7 +32,10 @@ def handler(context: dict, request: Request) -> Response:
     max_new_tokens = request.json.get("max_new_tokens", 512)
     temperature = request.json.get("temperature", 0.7)
     prompt = request.json.get("prompt")
-    prompt_template=f'''{prompt}
+    system_message = "You are a helpful assistant"
+    prompt_template=f'''SYSTEM: {system_message}
+    USER: {prompt}
+    ASSISTANT:
     '''
     input_ids = tokenizer(prompt_template, return_tensors='pt').input_ids.cuda()
     output = model.generate(inputs=input_ids, temperature=temperature, max_new_tokens=max_new_tokens)
