@@ -1,4 +1,3 @@
-# demo-dolphin-llama2-7b-gptq
 ![](https://www.banana.dev/lib_zOkYpJoyYVcAamDf/x2p804nk9qvjb1vg.svg?w=340 "Banana.dev")
 
 # Banana.dev Dolphin-Llama2-7B-GPTQ starter template
