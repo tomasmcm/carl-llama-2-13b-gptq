@@ -2,10 +2,10 @@ from potassium import Potassium, Request, Response
 from transformers import AutoTokenizer
 from auto_gptq import AutoGPTQForCausalLM
 
-MODEL_NAME_OR_PATH = "TheBloke/Dolphin-Llama2-7B-GPTQ"
+MODEL_NAME_OR_PATH = "TheBloke/Carl-Llama-2-13B-GPTQ"
 DEVICE = "cuda:0"
 
-app = Potassium("Dolphin-Llama2-7B-GPTQ")
+app = Potassium("Carl-Llama-2-13B-GPTQ")
 
 @app.init
 def init() -> dict:
@@ -32,10 +32,13 @@ def handler(context: dict, request: Request) -> Response:
     max_new_tokens = request.json.get("max_new_tokens", 512)
     temperature = request.json.get("temperature", 0.7)
     prompt = request.json.get("prompt")
-    system_message = "You are a helpful assistant"
-    prompt_template=f'''SYSTEM: {system_message}
+    system_message = "This is a conversation with your Therapist AI, Carl. Carl is designed to help you while in stress. It can answer your questions and help you to calm down"
+    prompt_template=f'''{system_message}
+
+    Context
+    You are Carl, A Therapist AI
     USER: {prompt}
-    ASSISTANT:
+    CARL:
     '''
     input_ids = tokenizer(prompt_template, return_tensors='pt').input_ids.cuda()
     output = model.generate(inputs=input_ids, temperature=temperature, max_new_tokens=max_new_tokens)

@@ -1,7 +1,7 @@
 from transformers import AutoTokenizer
 from auto_gptq import AutoGPTQForCausalLM
 
-MODEL_NAME_OR_PATH = "TheBloke/Dolphin-Llama2-7B-GPTQ"
+MODEL_NAME_OR_PATH = "TheBloke/Carl-Llama-2-13B-GPTQ"
 DEVICE = "cuda:0"
 
 def download_model() -> tuple:
